@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { config } from "dotenv";
 import { sendEmail } from './utils/sendDynmicEmail.js';
+import cors from "cors"
 // import { sendEmail } from "./utils/sendGridApiKey.js";
 
 config({
@@ -18,6 +19,12 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended:true
 }));
+app.use(cors({
+    origin:"http://localhost:5174",
+    credentials:true,
+    methods:["GET","POST","PUT","DELETE"]
+
+}))
 
 //API Functions
 app.post("/sendEmail",async(req,res)=>{
