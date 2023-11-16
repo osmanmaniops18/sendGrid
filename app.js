@@ -29,10 +29,10 @@ app.use(cors({
 //API Functions
 app.post("/sendEmail",async(req,res)=>{
  try {
-    const {to,subject}=req.body;
+    const {email,firstName,lastname}=req.body;
     const text="Hello from crownboth bussiness to you!";
     // await sendEmail(to,subject,text);
-    await sendEmail(to);
+    await sendEmail(email);
     res.status(200).json({
         success:true,
         message:"Email sent"
