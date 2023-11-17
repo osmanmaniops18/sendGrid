@@ -10,7 +10,6 @@ export const sendEmail = async (to, subject, text) => {
     text: text,
     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
   };
-
   try {
     await sgMail.send(msg);
   } catch (error) {
